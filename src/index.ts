@@ -21,4 +21,4 @@ app.use(cors({
 connectDB()
 app.listen(PORT, () => {
     console.log(`🚀 Servidor en escucha http://localhost:${PORT}`);
-} )
+})
