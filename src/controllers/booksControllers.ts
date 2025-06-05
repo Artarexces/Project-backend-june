@@ -127,3 +127,5 @@ const deleteBookById = async (req: Request, res: Response) => {
         return res.status(500).json(response)
     }
 }
+
+export { getAllBooks, getBookById, postBook, editBookById, deleteBookById }
