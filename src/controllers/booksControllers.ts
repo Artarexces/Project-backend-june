@@ -6,27 +6,27 @@ import { Book } from "../models/booksModels";
 
 // Obtener todos los libros "GETall"
 
-const getAllBooks = async (req:Request, res:Response) => {
+export const getAllBooks = async (req:Request, res:Response): Promise<void> => {
     try {
         const books = await Book.find();
-        const response : ApiRes<Ibooks[]> ={
+        const response: ApiRes<Ibooks[]> ={
             success:true,
             data: books,
         }
-        return res.status(200).json(response);
-    } catch (error) {
+        res.status(200).json(response);
+    } catch (error: any) {
         const response: ApiRes<null> ={
             success: false,
             message: 'Error al obtener libros',
         }
-        return res.status(500).json(response)
+        res.status(500).json(response)
     }
 }
 
 
 // Obtener un librp por su ID "GETid"
 
-const getBookById = async (req: Request, res: Response) => {
+export const getBookById = async (req: Request, res: Response): Promise<void> => {
     try {
         const book = await Book.findById(req.params.id);
         if (!book) {
@@ -34,26 +34,27 @@ const getBookById = async (req: Request, res: Response) => {
                 success: false,
                 message: 'Libro no encontrado',
             };
-            return res.status(500).json(response)
+            res.status(404).json(response)
+            return
         }
         const response: ApiRes<Ibooks> = {
             success: true,
             data: book,
         }
-        return res.status(200).json(response)
-    } catch (error) {
+        res.status(200).json(response)
+    } catch (error: any) {
         const response: ApiRes<null> = {
             success:true,
             message: 'Error al buscar el libro'
         }
-        return res.status(500).json(response)
+        res.status(500).json(response)
     }
 }
 
 
 // Crear un nuevo libro "POSTbook"
 
-const postBook = async (req: Request, res: Response) => {
+export const postBook = async (req: Request, res: Response): Promise<void> => {
     try {
         const book = new Book(req.body)
         await book.save()
@@ -62,20 +63,20 @@ const postBook = async (req: Request, res: Response) => {
             data: book,
             message: 'Libro creado con exito'
         }
-        return res.status(200).json(response)
-    } catch (error) {
+        res.status(201).json(response)
+    } catch (error: any) {
         const response: ApiRes<null> = {
             success: false,
             message:'Error al crear libro'
         }
-        return res.status(500).json(response)
+        res.status(500).json(response)
     }
 }
 
 
 // Editar un libro por su ID "PATCHbook"
 
-const editBookById = async (req: Request, res: Response) => {
+export const editBookById = async (req: Request, res: Response): Promise<void> => {
     try {
         const book = await Book.findByIdAndUpdate(req.params.id, req.body, {new: true,})
         if (!book) {
@@ -83,27 +84,28 @@ const editBookById = async (req: Request, res: Response) => {
                 success: false,
                 message: 'Libro no encontrado...'
             }
-            return res.status(500).json(response)
+            res.status(404).json(response)
+            return
         }
         const response: ApiRes<Ibooks> = {
             success: true,
             data: book,
             message: 'Libro editado con exito'
         }
-        return res.status(200).json(response)
-    } catch (error) {
+        res.status(200).json(response)
+    } catch (error: any) {
         const response: ApiRes<null> = {
             success: false,
             message: 'Error al encontrar el libro',
         }
-        return res.status(500).json(response)
+        res.status(500).json(response)
     }
 }
 
 
 // Eliminar un libro por su ID "DELETEbook"
 
-const deleteBookById = async (req: Request, res: Response) => {
+export const deleteBookById = async (req: Request, res: Response): Promise<void> => {
     try {
         const book = await Book.findByIdAndDelete(req.params.id)
         if(!book) {
@@ -111,21 +113,20 @@ const deleteBookById = async (req: Request, res: Response) => {
                 success: false,
                 message: 'Libro no encontrado',
             }
-            return res.status(500).json(response)
+            res.status(404).json(response)
+            return
         }
         const response: ApiRes<Ibooks> = {
             success: true,
             data: book,
             message: 'Libro eliminado extiosamente'
         }
-        return res.status(200).json(response)
-    } catch (error) {
+        res.status(200).json(response)
+    } catch (error: any) {
         const response: ApiRes<null> = {
             success: false,
             message: 'Error al encontrar libro',
         }
-        return res.status(500).json(response)
+        res.status(500).json(response)
     }
 }
-
-export { getAllBooks, getBookById, postBook, editBookById, deleteBookById }
