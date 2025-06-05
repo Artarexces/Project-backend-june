@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import cors from "cors";
 import express from "express";
-import { connectDB } from "./utils/db";
+import { connectDB } from "./config/db";
 
 
 const PORT = process.env.PORT || 2828
