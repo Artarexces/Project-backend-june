@@ -357,17 +357,19 @@ En el archivo package.json encontrarás los siguientes scripts:
   }
 }
 ```
-
+```bash
 npm run dev
-
+```
 Inicia el servidor en modo desarrollo con recarga automática (ts-node-dev). Usa los archivos TypeScript directamente (no requiere compilación previa).
 
+```bash
 npm run build
-
+```
 Compila todo el proyecto TypeScript a JavaScript en la carpeta dist/.
 
+```bash
 npm start
-
+```
 Ejecuta el servidor con el código compilado (en dist/index.js). Úsalo luego de npm run build.
 
 🔧 Configuración de variables de entorno
@@ -379,6 +381,7 @@ MONGODB_URI=mongodb://localhost:27017/biblioteca
 PORT: Puerto donde correrá el servidor (por defecto 5000).
 MONGODB_URI: URL de conexión a MongoDB (local o en nube).
 ```
+
 🧩 Buenas prácticas y notas
 
 Patrón MVC
