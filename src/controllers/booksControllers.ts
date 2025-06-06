@@ -6,7 +6,7 @@ import { Book } from "../models/booksModels";
 
 // Obtener todos los libros "GETall"
 
-export const getAllBooks = async (req:Request, res:Response): Promise<void> => {
+const getAllBooks = async (req:Request, res:Response): Promise<void> => {
     try {
         const books = await Book.find();
         const response: ApiRes<Ibooks[]> ={
@@ -26,7 +26,7 @@ export const getAllBooks = async (req:Request, res:Response): Promise<void> => {
 
 // Obtener un librp por su ID "GETid"
 
-export const getBookById = async (req: Request, res: Response): Promise<void> => {
+const getBookById = async (req: Request, res: Response): Promise<void> => {
     try {
         const book = await Book.findById(req.params.id);
         if (!book) {
@@ -54,7 +54,7 @@ export const getBookById = async (req: Request, res: Response): Promise<void> =>
 
 // Crear un nuevo libro "POSTbook"
 
-export const postBook = async (req: Request, res: Response): Promise<void> => {
+const postBook = async (req: Request, res: Response): Promise<void> => {
     try {
         const book = new Book(req.body)
         await book.save()
@@ -76,7 +76,7 @@ export const postBook = async (req: Request, res: Response): Promise<void> => {
 
 // Editar un libro por su ID "PATCHbook"
 
-export const editBookById = async (req: Request, res: Response): Promise<void> => {
+const editBookById = async (req: Request, res: Response): Promise<void> => {
     try {
         const book = await Book.findByIdAndUpdate(req.params.id, req.body, {new: true,})
         if (!book) {
@@ -105,7 +105,7 @@ export const editBookById = async (req: Request, res: Response): Promise<void> =
 
 // Eliminar un libro por su ID "DELETEbook"
 
-export const deleteBookById = async (req: Request, res: Response): Promise<void> => {
+const deleteBookById = async (req: Request, res: Response): Promise<void> => {
     try {
         const book = await Book.findByIdAndDelete(req.params.id)
         if(!book) {
@@ -130,3 +130,5 @@ export const deleteBookById = async (req: Request, res: Response): Promise<void>
         res.status(500).json(response)
     }
 }
+
+export { getAllBooks, getBookById, postBook, editBookById, deleteBookById }
