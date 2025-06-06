@@ -1,4 +1,4 @@
-# Project-backend-Biblioteca-Digital
+# Proyecto-backend-Biblioteca-Digital
 
 API RESTful de Biblioteca Digital construida con Node.js, Express, TypeScript y MongoDB siguiendo el patrón MVC.
 
@@ -383,15 +383,15 @@ MONGODB_URI: URL de conexión a MongoDB (local o en nube).
 
 Patrón MVC
 
+Tipado fuerte (TypeScript)
+
 Modelos: se definen en src/models/ usando Mongoose y TypeScript.
 
 Controladores: la lógica de cada ruta está en src/controllers/booksControllers.ts.
 
 Rutas: la definición de endpoints está en src/routes/booksRoutes.ts.
 
-Config: src/config/db.ts (conexión a MongoDB) y src/config/env.ts
-
-Tipado fuerte (TypeScript)
+Config: src/config/db.ts (conexión a MongoDB) 
 
 Se usan interfaces (src/interfaces/IBook.ts y src/interfaces/ApiRes.ts) para tipar datos y estandarizar respuestas.
 
@@ -403,12 +403,7 @@ Se usan try/catch en cada controlador.
 
 Si la operación es exitosa, devuelve HTTP 200 (o 201 al crear).
 
-Si no se encuentra el recurso, devuelve HTTP 404.
-
-Si ocurre un error interno o de validación, devuelve HTTP 400/500 según corresponda.
-
-Commit constantes
-Se recomienda realizar al menos 10 commits significativos, reflejando cada etapa:
+Si ocurre un error interno o de validación, devuelve HTTP 400/404/500 según corresponda.
 
 Inicialización del proyecto
 

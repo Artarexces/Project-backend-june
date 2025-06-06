@@ -8,6 +8,9 @@ const BookSchema = new Schema<Ibooks>({
     publishedYear: { type: Number },
     genre: { type: String },
     available: {type: Boolean, default: true}
+},{ 
+    versionKey: false,
+    timestamps: true,
 }) 
 
 
