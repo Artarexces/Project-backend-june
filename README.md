@@ -153,8 +153,7 @@ Ejemplo de respuesta:
       "genre": "Realismo mágico",
       "available": true,
       "createdAt": "2025-06-05T18:32:10.123Z",
-      "updatedAt": "2025-06-05T18:32:10.123Z",
-      "__v": 0
+      "updatedAt": "2025-06-05T18:32:10.123Z"
     },
     {
       "_id": "60f8a7d08c1f8b3f8c123457",
@@ -164,8 +163,7 @@ Ejemplo de respuesta:
       "genre": "Novela",
       "available": false,
       "createdAt": "2025-06-05T18:35:20.456Z",
-      "updatedAt": "2025-06-05T18:40:30.789Z",
-      "__v": 0
+      "updatedAt": "2025-06-05T18:40:30.789Z"
     }
   ]
 }
@@ -192,7 +190,6 @@ Respuesta (éxito):
     "available": true,
     "createdAt": "2025-06-05T18:32:10.123Z",
     "updatedAt": "2025-06-05T18:32:10.123Z",
-    "__v": 0
   }
 }
 ```
@@ -246,7 +243,6 @@ Respuesta (éxito):
     "available": true,
     "createdAt": "2025-06-05T19:00:00.000Z",
     "updatedAt": "2025-06-05T19:00:00.000Z",
-    "__v": 0
   },
   "message": "Libro creado exitosamente"
 }
@@ -294,7 +290,6 @@ Respuesta (éxito):
     "available": false,
     "createdAt": "2025-06-05T18:32:10.123Z",
     "updatedAt": "2025-06-05T19:05:00.000Z",
-    "__v": 0
   },
   "message": "Libro editado con éxito"
 }
@@ -332,7 +327,6 @@ Respuesta (éxito):
     "available": false,
     "createdAt": "2025-06-05T18:32:10.123Z",
     "updatedAt": "2025-06-05T19:05:00.000Z",
-    "__v": 0
   },
   "message": "Libro eliminado exitosamente"
 }
@@ -426,4 +420,4 @@ Archivos de entorno y .gitignore
 
 Scripts en package.json
 
-Pruebas con Postman 
+Pruebas con Postman
